@@ -69,6 +69,11 @@ public class FromAnggota extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setText("Kode Anggota");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel1MouseReleased(evt);
+            }
+        });
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 20, 80, 16);
 
@@ -97,14 +102,29 @@ public class FromAnggota extends javax.swing.JFrame {
         txtalamat.setBounds(150, 80, 120, 22);
 
         btninsert.setText("insert");
+        btninsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btninsertActionPerformed(evt);
+            }
+        });
         getContentPane().add(btninsert);
         btninsert.setBounds(20, 150, 72, 23);
 
         btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnupdate);
         btnupdate.setBounds(110, 150, 72, 23);
 
         btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btndelete);
         btndelete.setBounds(210, 150, 72, 23);
 
@@ -137,6 +157,11 @@ public class FromAnggota extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelanggota.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelanggotaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelanggota);
 
         getContentPane().add(jScrollPane1);
@@ -147,8 +172,34 @@ public class FromAnggota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+     controller.clearForm();                // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btninsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninsertActionPerformed
+    controller.saveAnggota();
+    controller.tampil();
+    controller.clearForm();// TODO add your handling code here:
+    }//GEN-LAST:event_btninsertActionPerformed
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        controller.updateAnggota();
+        controller.tampil();
+        controller.clearForm(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+       controller.deleteAnggota();
+        controller.tampil();
+        controller.clearForm();// TODO add your handling code here:
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+    private void tabelanggotaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelanggotaMouseClicked
+       controller.getAnggota();  // TODO add your handling code here:
+    }//GEN-LAST:event_tabelanggotaMouseClicked
+
+    private void jLabel1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel1MouseReleased
 
     /**
      * @param args the command line arguments
